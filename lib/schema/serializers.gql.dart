@@ -3,6 +3,12 @@ import 'package:built_value/serializer.dart';
 import 'package:built_value/standard_json_plugin.dart' show StandardJsonPlugin;
 import 'package:gql_code_builder/src/serializers/operation_serializer.dart'
     show OperationSerializer;
+import 'package:graphql_sample_kaigi_2021/component/owner_avatar/graphql/owner_avatar.fragment.data.gql.dart'
+    show GOwnerAvatarFragmentData;
+import 'package:graphql_sample_kaigi_2021/component/owner_avatar/graphql/owner_avatar.fragment.req.gql.dart'
+    show GOwnerAvatarFragmentReq;
+import 'package:graphql_sample_kaigi_2021/component/owner_avatar/graphql/owner_avatar.fragment.var.gql.dart'
+    show GOwnerAvatarFragmentVars;
 import 'package:graphql_sample_kaigi_2021/schema/schema.schema.gql.dart'
     show
         GAcceptEnterpriseAdministratorInvitationInput,
@@ -392,11 +398,38 @@ import 'package:graphql_sample_kaigi_2021/schema/schema.schema.gql.dart'
         GVerifiableDomainOrderField,
         GVerifyVerifiableDomainInput,
         GX509Certificate;
+import 'package:graphql_sample_kaigi_2021/screen/list_screen/graphql/list_screen.query.data.gql.dart'
+    show
+        GListScreenQueryData_search_nodes,
+        GListScreenQueryData_search_nodes__asRepository_owner,
+        GListScreenQueryData,
+        GListScreenQueryData_search,
+        GListScreenQueryData_search_nodes__asRepository,
+        GListScreenQueryData_search_nodes__asRepository_owner__asUser,
+        GListScreenQueryData_search_nodes__asRepository_owner__base,
+        GListScreenQueryData_search_nodes__base;
+import 'package:graphql_sample_kaigi_2021/screen/list_screen/graphql/list_screen.query.req.gql.dart'
+    show GListScreenQueryReq;
+import 'package:graphql_sample_kaigi_2021/screen/list_screen/graphql/list_screen.query.var.gql.dart'
+    show GListScreenQueryVars;
+import 'package:graphql_sample_kaigi_2021/screen/list_screen/view/list_card/graphql/list_card.fragment.data.gql.dart'
+    show
+        GListCardFragmentData_owner,
+        GListCardFragmentData,
+        GListCardFragmentData_owner__asUser,
+        GListCardFragmentData_owner__base;
+import 'package:graphql_sample_kaigi_2021/screen/list_screen/view/list_card/graphql/list_card.fragment.req.gql.dart'
+    show GListCardFragmentReq;
+import 'package:graphql_sample_kaigi_2021/screen/list_screen/view/list_card/graphql/list_card.fragment.var.gql.dart'
+    show GListCardFragmentVars;
 
 part 'serializers.gql.g.dart';
 
 final SerializersBuilder _serializersBuilder = _$serializers.toBuilder()
   ..add(OperationSerializer())
+  ..add(GListCardFragmentData_owner.serializer)
+  ..add(GListScreenQueryData_search_nodes.serializer)
+  ..add(GListScreenQueryData_search_nodes__asRepository_owner.serializer)
   ..addPlugin(StandardJsonPlugin());
 @SerializersFor([
   GAcceptEnterpriseAdministratorInvitationInput,
@@ -561,6 +594,19 @@ final SerializersBuilder _serializersBuilder = _$serializers.toBuilder()
   GLanguageOrder,
   GLanguageOrderField,
   GLinkRepositoryToProjectInput,
+  GListCardFragmentData,
+  GListCardFragmentData_owner__asUser,
+  GListCardFragmentData_owner__base,
+  GListCardFragmentReq,
+  GListCardFragmentVars,
+  GListScreenQueryData,
+  GListScreenQueryData_search,
+  GListScreenQueryData_search_nodes__asRepository,
+  GListScreenQueryData_search_nodes__asRepository_owner__asUser,
+  GListScreenQueryData_search_nodes__asRepository_owner__base,
+  GListScreenQueryData_search_nodes__base,
+  GListScreenQueryReq,
+  GListScreenQueryVars,
   GLockLockableInput,
   GLockReason,
   GMarkDiscussionCommentAsAnswerInput,
@@ -596,6 +642,9 @@ final SerializersBuilder _serializersBuilder = _$serializers.toBuilder()
   GOrganizationMembersCanCreateRepositoriesSettingValue,
   GOrganizationOrder,
   GOrganizationOrderField,
+  GOwnerAvatarFragmentData,
+  GOwnerAvatarFragmentReq,
+  GOwnerAvatarFragmentVars,
   GPackageFileOrder,
   GPackageFileOrderField,
   GPackageOrder,

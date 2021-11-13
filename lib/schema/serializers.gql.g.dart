@@ -169,6 +169,21 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(GLanguageOrder.serializer)
       ..add(GLanguageOrderField.serializer)
       ..add(GLinkRepositoryToProjectInput.serializer)
+      ..add(GListCardFragmentData.serializer)
+      ..add(GListCardFragmentData_owner__asUser.serializer)
+      ..add(GListCardFragmentData_owner__base.serializer)
+      ..add(GListCardFragmentReq.serializer)
+      ..add(GListCardFragmentVars.serializer)
+      ..add(GListScreenQueryData.serializer)
+      ..add(GListScreenQueryData_search.serializer)
+      ..add(GListScreenQueryData_search_nodes__asRepository.serializer)
+      ..add(GListScreenQueryData_search_nodes__asRepository_owner__asUser
+          .serializer)
+      ..add(GListScreenQueryData_search_nodes__asRepository_owner__base
+          .serializer)
+      ..add(GListScreenQueryData_search_nodes__base.serializer)
+      ..add(GListScreenQueryReq.serializer)
+      ..add(GListScreenQueryVars.serializer)
       ..add(GLockLockableInput.serializer)
       ..add(GLockReason.serializer)
       ..add(GMarkDiscussionCommentAsAnswerInput.serializer)
@@ -206,6 +221,9 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(GOrganizationMembersCanCreateRepositoriesSettingValue.serializer)
       ..add(GOrganizationOrder.serializer)
       ..add(GOrganizationOrderField.serializer)
+      ..add(GOwnerAvatarFragmentData.serializer)
+      ..add(GOwnerAvatarFragmentReq.serializer)
+      ..add(GOwnerAvatarFragmentVars.serializer)
       ..add(GPackageFileOrder.serializer)
       ..add(GPackageFileOrderField.serializer)
       ..add(GPackageOrder.serializer)
@@ -436,6 +454,10 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(GFileAddition)]),
           () => new ListBuilder<GFileAddition>())
+      ..addBuilderFactory(
+          const FullType(BuiltList,
+              const [const FullType(GListScreenQueryData_search_nodes)]),
+          () => new ListBuilder<GListScreenQueryData_search_nodes>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
           () => new ListBuilder<String>())

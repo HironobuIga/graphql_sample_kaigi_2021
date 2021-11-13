@@ -1,0 +1,6 @@
+fragment OwnerAvatarFragment on User {
+    __typename
+    id
+    login
+    avatarUrl
+}

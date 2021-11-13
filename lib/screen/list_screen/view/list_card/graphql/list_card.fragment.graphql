@@ -1,0 +1,14 @@
+#import './../../../../../component/owner_avatar/graphql/owner_avatar.fragment.graphql'
+
+fragment ListCardFragment on Repository {
+    __typename
+    id
+    name
+    description
+    viewerHasStarred
+    owner {
+        ... on User {
+            ...OwnerAvatarFragment
+        }
+    }
+}
