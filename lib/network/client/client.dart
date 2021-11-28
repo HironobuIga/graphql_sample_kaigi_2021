@@ -20,7 +20,7 @@ Future<Client> initClient() async {
 
   // initialize link
   final httpLink = HttpLink("https://api.github.com/graphql");
-  final authLink = AuthLink(getToken: () => ""); // insert your token here
+  final authLink = AuthLink(getToken: () => "Bearer token"); // insert your token here
   final link = authLink.concat(httpLink);
 
   // make client
