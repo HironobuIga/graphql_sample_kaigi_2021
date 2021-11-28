@@ -5,7 +5,7 @@ import 'package:graphql_sample_kaigi_2021/screen/list_screen/view/list_card/grap
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class ListCard extends HookConsumerWidget {
-  const ListCard(this.listCardFragment);
+  const ListCard({Key? key, required this.listCardFragment}): super(key: key);
 
   final GListCardFragmentData listCardFragment;
 

@@ -4,7 +4,7 @@ import 'package:graphql_sample_kaigi_2021/app.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    await tester.pumpWidget(App());
+    await tester.pumpWidget(const App());
     expect(find.text('0'), findsOneWidget);
     expect(find.text('1'), findsNothing);
     await tester.tap(find.byIcon(Icons.add));

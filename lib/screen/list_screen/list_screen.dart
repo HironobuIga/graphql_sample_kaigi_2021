@@ -7,6 +7,8 @@ import 'package:graphql_sample_kaigi_2021/screen/list_screen/view/list_card/list
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class ListScreen extends ConsumerWidget {
+  const ListScreen({Key? key}): super(key: key);
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
@@ -17,8 +19,8 @@ class ListScreen extends ConsumerWidget {
         body:
         Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.all(16),
+            const Padding(
+              padding: EdgeInsets.all(16),
               child: SizedBox(
                 height: 88,
                 child: _SearchBar(),
@@ -56,7 +58,7 @@ class _SearchBarState extends ConsumerState<_SearchBar> {
           onPressed: () {
             ref.read(listScreenQueryNotifierProvider)
                 .load(searchWord: _textController.text);
-          }, child: Text("検索"),
+          }, child: const Text("検索"),
         )
       ],
     );
@@ -76,20 +78,22 @@ class _ListScreenContent extends HookConsumerWidget {
         } else {
           final nodes = data.search.nodes ?? BuiltList();
           return ListView.separated(
-            padding: EdgeInsets.all(16),
+            padding: const EdgeInsets.all(16),
             itemBuilder: (context, index) {
               final node = nodes[index];
               if (node is GListScreenQueryData_search_nodes__asRepository) {
-                return ListCard(GListCardFragmentData.fromJson(node.toJson())!);
+                return ListCard(
+                    listCardFragment: GListCardFragmentData.fromJson(node.toJson())!
+                );
               } else {
                 return Container();
               }
-            }, separatorBuilder: (context, index) => Divider(),
+            }, separatorBuilder: (context, index) => const Divider(),
             itemCount: nodes.length,
           );
         }
       },
-      loading: () => Center(child: CircularProgressIndicator()),
+      loading: () => const Center(child: CircularProgressIndicator()),
       error: (context, error) => Container(),
     );
   }

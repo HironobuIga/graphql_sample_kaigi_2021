@@ -5,7 +5,7 @@ import 'package:graphql_sample_kaigi_2021/network/client/client.dart';
 
 void main() async {
   runApp(
-      MaterialApp(
+      const MaterialApp(
           home: CircularProgressIndicator()
       )
   );
@@ -16,7 +16,7 @@ void main() async {
       overrides: [
         clientProvider.overrideWithValue(client),
       ],
-      child: App(),
+      child: const App(),
     ),
   );
 }

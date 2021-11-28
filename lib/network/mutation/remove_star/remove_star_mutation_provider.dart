@@ -15,7 +15,7 @@ class RemoveStarMutationChangeNotifier extends ChangeNotifier {
 
   final Reader _read;
   late final client = _read(clientProvider);
-  AsyncValue<void> _status = AsyncValue.data(null);
+  AsyncValue<void> _status = const AsyncValue.data(null);
   AsyncValue<void> get status => _status;
   final _requestId =  "RemoveStarMutation";
 
@@ -25,7 +25,7 @@ class RemoveStarMutationChangeNotifier extends ChangeNotifier {
       ..requestId = _requestId
     );
 
-    _status = AsyncValue.loading();
+    _status = const AsyncValue.loading();
     notifyListeners();
     notifyListeners();
     final result = await client
@@ -37,7 +37,7 @@ class RemoveStarMutationChangeNotifier extends ChangeNotifier {
       result.linkException;
       _status = AsyncValue.error(error ?? Exception());
     } else {
-      _status = AsyncValue.data(null);
+      _status = const AsyncValue.data(null);
     }
     notifyListeners();
   }

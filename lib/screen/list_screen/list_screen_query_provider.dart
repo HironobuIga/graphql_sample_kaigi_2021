@@ -17,9 +17,9 @@ class ListScreenQueryNotifier extends ChangeNotifier {
   final Reader _read;
   final requestId = "list_screen_query";
   late final client = _read(clientProvider);
-  final cancellableSet = Set<StreamSubscription>();
+  final cancellableSet = <StreamSubscription>{};
 
-  AsyncValue<GListScreenQueryData?> _data = AsyncValue.data(null);
+  AsyncValue<GListScreenQueryData?> _data = const AsyncValue.data(null);
   AsyncValue<GListScreenQueryData?> get data => _data;
 
   void _bindQuery() {
@@ -44,7 +44,7 @@ class ListScreenQueryNotifier extends ChangeNotifier {
   }
 
   void load({required String searchWord}) {
-    _data = AsyncValue.loading();
+    _data = const AsyncValue.loading();
     final request = GListScreenQueryReq((b) =>
     b..vars.searchWord = searchWord
       ..fetchPolicy = FetchPolicy.CacheAndNetwork
@@ -56,7 +56,9 @@ class ListScreenQueryNotifier extends ChangeNotifier {
 
   @override
   void dispose() {
-    cancellableSet.forEach((element) {element.cancel(); });
+    for (var element in cancellableSet) {
+      element.cancel();
+    }
     cancellableSet.clear();
     super.dispose();
   }
