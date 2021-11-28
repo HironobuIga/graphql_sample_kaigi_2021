@@ -3,7 +3,7 @@ description: GraphQL sample project for flutter kaigi 2021.
 
 version: 1.0.0+1
 environment:
-  sdk: '>=2.12.0 <3.0.0'
+  sdk: '>=2.14.0 <3.0.0'
 
 dependencies:
   # graphql
@@ -16,7 +16,7 @@ dependencies:
   hive:
   hive_flutter:
   # architecture
-  flutter_riverpod:
+  hooks_riverpod: 1.0.0
   flutter:
     sdk: flutter
 
