@@ -21,8 +21,8 @@ abstract class GListCardFragment {
 
 abstract class GListCardFragment_owner implements _i1.GOwnerAvatarFragment {
   String get G__typename;
-  String get id;
   String get login;
+  String get id;
   _i2.GURI get avatarUrl;
   Map<String, dynamic> toJson();
 }
@@ -70,8 +70,8 @@ abstract class GListCardFragmentData_owner
       b..G__typename = 'RepositoryOwner';
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
-  String get id;
   String get login;
+  String get id;
   _i2.GURI get avatarUrl;
   static Serializer<GListCardFragmentData_owner> get serializer =>
       _$gListCardFragmentDataOwnerSerializer;

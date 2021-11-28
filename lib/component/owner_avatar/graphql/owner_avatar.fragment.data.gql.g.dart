@@ -29,9 +29,6 @@ class _$GOwnerAvatarFragmentDataSerializer
           specifiedType: const FullType(String)),
       'id',
       serializers.serialize(object.id, specifiedType: const FullType(String)),
-      'login',
-      serializers.serialize(object.login,
-          specifiedType: const FullType(String)),
       'avatarUrl',
       serializers.serialize(object.avatarUrl,
           specifiedType: const FullType(_i1.GURI)),
@@ -60,10 +57,6 @@ class _$GOwnerAvatarFragmentDataSerializer
           result.id = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'login':
-          result.login = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
-          break;
         case 'avatarUrl':
           result.avatarUrl.replace(serializers.deserialize(value,
               specifiedType: const FullType(_i1.GURI))! as _i1.GURI);
@@ -81,8 +74,6 @@ class _$GOwnerAvatarFragmentData extends GOwnerAvatarFragmentData {
   @override
   final String id;
   @override
-  final String login;
-  @override
   final _i1.GURI avatarUrl;
 
   factory _$GOwnerAvatarFragmentData(
@@ -90,16 +81,11 @@ class _$GOwnerAvatarFragmentData extends GOwnerAvatarFragmentData {
       (new GOwnerAvatarFragmentDataBuilder()..update(updates)).build();
 
   _$GOwnerAvatarFragmentData._(
-      {required this.G__typename,
-      required this.id,
-      required this.login,
-      required this.avatarUrl})
+      {required this.G__typename, required this.id, required this.avatarUrl})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
         G__typename, 'GOwnerAvatarFragmentData', 'G__typename');
     BuiltValueNullFieldError.checkNotNull(id, 'GOwnerAvatarFragmentData', 'id');
-    BuiltValueNullFieldError.checkNotNull(
-        login, 'GOwnerAvatarFragmentData', 'login');
     BuiltValueNullFieldError.checkNotNull(
         avatarUrl, 'GOwnerAvatarFragmentData', 'avatarUrl');
   }
@@ -119,15 +105,13 @@ class _$GOwnerAvatarFragmentData extends GOwnerAvatarFragmentData {
     return other is GOwnerAvatarFragmentData &&
         G__typename == other.G__typename &&
         id == other.id &&
-        login == other.login &&
         avatarUrl == other.avatarUrl;
   }
 
   @override
   int get hashCode {
     return $jf($jc(
-        $jc($jc($jc(0, G__typename.hashCode), id.hashCode), login.hashCode),
-        avatarUrl.hashCode));
+        $jc($jc(0, G__typename.hashCode), id.hashCode), avatarUrl.hashCode));
   }
 
   @override
@@ -135,7 +119,6 @@ class _$GOwnerAvatarFragmentData extends GOwnerAvatarFragmentData {
     return (newBuiltValueToStringHelper('GOwnerAvatarFragmentData')
           ..add('G__typename', G__typename)
           ..add('id', id)
-          ..add('login', login)
           ..add('avatarUrl', avatarUrl))
         .toString();
   }
@@ -154,10 +137,6 @@ class GOwnerAvatarFragmentDataBuilder
   String? get id => _$this._id;
   set id(String? id) => _$this._id = id;
 
-  String? _login;
-  String? get login => _$this._login;
-  set login(String? login) => _$this._login = login;
-
   _i1.GURIBuilder? _avatarUrl;
   _i1.GURIBuilder get avatarUrl => _$this._avatarUrl ??= new _i1.GURIBuilder();
   set avatarUrl(_i1.GURIBuilder? avatarUrl) => _$this._avatarUrl = avatarUrl;
@@ -171,7 +150,6 @@ class GOwnerAvatarFragmentDataBuilder
     if ($v != null) {
       _G__typename = $v.G__typename;
       _id = $v.id;
-      _login = $v.login;
       _avatarUrl = $v.avatarUrl.toBuilder();
       _$v = null;
     }
@@ -199,8 +177,6 @@ class GOwnerAvatarFragmentDataBuilder
                   G__typename, 'GOwnerAvatarFragmentData', 'G__typename'),
               id: BuiltValueNullFieldError.checkNotNull(
                   id, 'GOwnerAvatarFragmentData', 'id'),
-              login: BuiltValueNullFieldError.checkNotNull(
-                  login, 'GOwnerAvatarFragmentData', 'login'),
               avatarUrl: avatarUrl.build());
     } catch (_) {
       late String _$failedField;

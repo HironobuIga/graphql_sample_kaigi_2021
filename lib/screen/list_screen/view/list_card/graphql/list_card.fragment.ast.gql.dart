@@ -47,6 +47,12 @@ const ListCardFragment = _i1.FragmentDefinitionNode(
           arguments: [],
           directives: [],
           selectionSet: _i1.SelectionSetNode(selections: [
+            _i1.FieldNode(
+                name: _i1.NameNode(value: 'login'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null),
             _i1.FragmentSpreadNode(
                 name: _i1.NameNode(value: 'OwnerAvatarFragment'),
                 directives: [])

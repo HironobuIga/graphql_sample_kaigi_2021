@@ -295,11 +295,11 @@ class _$GListScreenQueryData_search_nodes__asRepository_ownerSerializer
       '__typename',
       serializers.serialize(object.G__typename,
           specifiedType: const FullType(String)),
-      'id',
-      serializers.serialize(object.id, specifiedType: const FullType(String)),
       'login',
       serializers.serialize(object.login,
           specifiedType: const FullType(String)),
+      'id',
+      serializers.serialize(object.id, specifiedType: const FullType(String)),
       'avatarUrl',
       serializers.serialize(object.avatarUrl,
           specifiedType: const FullType(_i5.GURI)),
@@ -325,12 +325,12 @@ class _$GListScreenQueryData_search_nodes__asRepository_ownerSerializer
           result.G__typename = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'id':
-          result.id = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
-          break;
         case 'login':
           result.login = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'id':
+          result.id = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
         case 'avatarUrl':
@@ -884,9 +884,9 @@ class _$GListScreenQueryData_search_nodes__asRepository_owner
   @override
   final String G__typename;
   @override
-  final String id;
-  @override
   final String login;
+  @override
+  final String id;
   @override
   final _i5.GURI avatarUrl;
 
@@ -900,16 +900,16 @@ class _$GListScreenQueryData_search_nodes__asRepository_owner
 
   _$GListScreenQueryData_search_nodes__asRepository_owner._(
       {required this.G__typename,
-      required this.id,
       required this.login,
+      required this.id,
       required this.avatarUrl})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(G__typename,
         'GListScreenQueryData_search_nodes__asRepository_owner', 'G__typename');
-    BuiltValueNullFieldError.checkNotNull(
-        id, 'GListScreenQueryData_search_nodes__asRepository_owner', 'id');
     BuiltValueNullFieldError.checkNotNull(login,
         'GListScreenQueryData_search_nodes__asRepository_owner', 'login');
+    BuiltValueNullFieldError.checkNotNull(
+        id, 'GListScreenQueryData_search_nodes__asRepository_owner', 'id');
     BuiltValueNullFieldError.checkNotNull(avatarUrl,
         'GListScreenQueryData_search_nodes__asRepository_owner', 'avatarUrl');
   }
@@ -931,15 +931,15 @@ class _$GListScreenQueryData_search_nodes__asRepository_owner
     if (identical(other, this)) return true;
     return other is GListScreenQueryData_search_nodes__asRepository_owner &&
         G__typename == other.G__typename &&
-        id == other.id &&
         login == other.login &&
+        id == other.id &&
         avatarUrl == other.avatarUrl;
   }
 
   @override
   int get hashCode {
     return $jf($jc(
-        $jc($jc($jc(0, G__typename.hashCode), id.hashCode), login.hashCode),
+        $jc($jc($jc(0, G__typename.hashCode), login.hashCode), id.hashCode),
         avatarUrl.hashCode));
   }
 
@@ -948,8 +948,8 @@ class _$GListScreenQueryData_search_nodes__asRepository_owner
     return (newBuiltValueToStringHelper(
             'GListScreenQueryData_search_nodes__asRepository_owner')
           ..add('G__typename', G__typename)
-          ..add('id', id)
           ..add('login', login)
+          ..add('id', id)
           ..add('avatarUrl', avatarUrl))
         .toString();
   }
@@ -965,13 +965,13 @@ class GListScreenQueryData_search_nodes__asRepository_ownerBuilder
   String? get G__typename => _$this._G__typename;
   set G__typename(String? G__typename) => _$this._G__typename = G__typename;
 
-  String? _id;
-  String? get id => _$this._id;
-  set id(String? id) => _$this._id = id;
-
   String? _login;
   String? get login => _$this._login;
   set login(String? login) => _$this._login = login;
+
+  String? _id;
+  String? get id => _$this._id;
+  set id(String? id) => _$this._id = id;
 
   _i5.GURIBuilder? _avatarUrl;
   _i5.GURIBuilder get avatarUrl => _$this._avatarUrl ??= new _i5.GURIBuilder();
@@ -986,8 +986,8 @@ class GListScreenQueryData_search_nodes__asRepository_ownerBuilder
     final $v = _$v;
     if ($v != null) {
       _G__typename = $v.G__typename;
-      _id = $v.id;
       _login = $v.login;
+      _id = $v.id;
       _avatarUrl = $v.avatarUrl.toBuilder();
       _$v = null;
     }
@@ -1018,14 +1018,14 @@ class GListScreenQueryData_search_nodes__asRepository_ownerBuilder
                   G__typename,
                   'GListScreenQueryData_search_nodes__asRepository_owner',
                   'G__typename'),
-              id: BuiltValueNullFieldError.checkNotNull(
-                  id,
-                  'GListScreenQueryData_search_nodes__asRepository_owner',
-                  'id'),
               login: BuiltValueNullFieldError.checkNotNull(
                   login,
                   'GListScreenQueryData_search_nodes__asRepository_owner',
                   'login'),
+              id: BuiltValueNullFieldError.checkNotNull(
+                  id,
+                  'GListScreenQueryData_search_nodes__asRepository_owner',
+                  'id'),
               avatarUrl: avatarUrl.build());
     } catch (_) {
       late String _$failedField;

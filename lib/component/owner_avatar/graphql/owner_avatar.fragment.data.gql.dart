@@ -10,7 +10,6 @@ part 'owner_avatar.fragment.data.gql.g.dart';
 abstract class GOwnerAvatarFragment {
   String get G__typename;
   String get id;
-  String get login;
   _i1.GURI get avatarUrl;
   Map<String, dynamic> toJson();
 }
@@ -30,7 +29,6 @@ abstract class GOwnerAvatarFragmentData
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
   String get id;
-  String get login;
   _i1.GURI get avatarUrl;
   static Serializer<GOwnerAvatarFragmentData> get serializer =>
       _$gOwnerAvatarFragmentDataSerializer;

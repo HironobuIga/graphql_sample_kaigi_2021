@@ -27,6 +27,7 @@ class ListScreenQueryNotifier extends ChangeNotifier {
     b..vars.searchWord = ""
       ..fetchPolicy = FetchPolicy.CacheAndNetwork
       ..requestId = requestId
+      ..executeOnListen = false
     );
     final subscription = client.request(request).listen((event) {
       if (event.hasErrors) {

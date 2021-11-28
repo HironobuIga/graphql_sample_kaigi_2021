@@ -154,8 +154,8 @@ abstract class GListScreenQueryData_search_nodes__asRepository_owner
       b..G__typename = 'RepositoryOwner';
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
-  String get id;
   String get login;
+  String get id;
   _i5.GURI get avatarUrl;
   static Serializer<GListScreenQueryData_search_nodes__asRepository_owner>
       get serializer =>

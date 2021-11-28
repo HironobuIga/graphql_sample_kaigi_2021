@@ -113,11 +113,11 @@ class _$GListCardFragmentData_ownerSerializer
       '__typename',
       serializers.serialize(object.G__typename,
           specifiedType: const FullType(String)),
-      'id',
-      serializers.serialize(object.id, specifiedType: const FullType(String)),
       'login',
       serializers.serialize(object.login,
           specifiedType: const FullType(String)),
+      'id',
+      serializers.serialize(object.id, specifiedType: const FullType(String)),
       'avatarUrl',
       serializers.serialize(object.avatarUrl,
           specifiedType: const FullType(_i2.GURI)),
@@ -142,12 +142,12 @@ class _$GListCardFragmentData_ownerSerializer
           result.G__typename = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'id':
-          result.id = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
-          break;
         case 'login':
           result.login = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'id':
+          result.id = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
         case 'avatarUrl':
@@ -341,9 +341,9 @@ class _$GListCardFragmentData_owner extends GListCardFragmentData_owner {
   @override
   final String G__typename;
   @override
-  final String id;
-  @override
   final String login;
+  @override
+  final String id;
   @override
   final _i2.GURI avatarUrl;
 
@@ -353,16 +353,16 @@ class _$GListCardFragmentData_owner extends GListCardFragmentData_owner {
 
   _$GListCardFragmentData_owner._(
       {required this.G__typename,
-      required this.id,
       required this.login,
+      required this.id,
       required this.avatarUrl})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
         G__typename, 'GListCardFragmentData_owner', 'G__typename');
     BuiltValueNullFieldError.checkNotNull(
-        id, 'GListCardFragmentData_owner', 'id');
-    BuiltValueNullFieldError.checkNotNull(
         login, 'GListCardFragmentData_owner', 'login');
+    BuiltValueNullFieldError.checkNotNull(
+        id, 'GListCardFragmentData_owner', 'id');
     BuiltValueNullFieldError.checkNotNull(
         avatarUrl, 'GListCardFragmentData_owner', 'avatarUrl');
   }
@@ -381,15 +381,15 @@ class _$GListCardFragmentData_owner extends GListCardFragmentData_owner {
     if (identical(other, this)) return true;
     return other is GListCardFragmentData_owner &&
         G__typename == other.G__typename &&
-        id == other.id &&
         login == other.login &&
+        id == other.id &&
         avatarUrl == other.avatarUrl;
   }
 
   @override
   int get hashCode {
     return $jf($jc(
-        $jc($jc($jc(0, G__typename.hashCode), id.hashCode), login.hashCode),
+        $jc($jc($jc(0, G__typename.hashCode), login.hashCode), id.hashCode),
         avatarUrl.hashCode));
   }
 
@@ -397,8 +397,8 @@ class _$GListCardFragmentData_owner extends GListCardFragmentData_owner {
   String toString() {
     return (newBuiltValueToStringHelper('GListCardFragmentData_owner')
           ..add('G__typename', G__typename)
-          ..add('id', id)
           ..add('login', login)
+          ..add('id', id)
           ..add('avatarUrl', avatarUrl))
         .toString();
   }
@@ -414,13 +414,13 @@ class GListCardFragmentData_ownerBuilder
   String? get G__typename => _$this._G__typename;
   set G__typename(String? G__typename) => _$this._G__typename = G__typename;
 
-  String? _id;
-  String? get id => _$this._id;
-  set id(String? id) => _$this._id = id;
-
   String? _login;
   String? get login => _$this._login;
   set login(String? login) => _$this._login = login;
+
+  String? _id;
+  String? get id => _$this._id;
+  set id(String? id) => _$this._id = id;
 
   _i2.GURIBuilder? _avatarUrl;
   _i2.GURIBuilder get avatarUrl => _$this._avatarUrl ??= new _i2.GURIBuilder();
@@ -434,8 +434,8 @@ class GListCardFragmentData_ownerBuilder
     final $v = _$v;
     if ($v != null) {
       _G__typename = $v.G__typename;
-      _id = $v.id;
       _login = $v.login;
+      _id = $v.id;
       _avatarUrl = $v.avatarUrl.toBuilder();
       _$v = null;
     }
@@ -461,10 +461,10 @@ class GListCardFragmentData_ownerBuilder
           new _$GListCardFragmentData_owner._(
               G__typename: BuiltValueNullFieldError.checkNotNull(
                   G__typename, 'GListCardFragmentData_owner', 'G__typename'),
-              id: BuiltValueNullFieldError.checkNotNull(
-                  id, 'GListCardFragmentData_owner', 'id'),
               login: BuiltValueNullFieldError.checkNotNull(
                   login, 'GListCardFragmentData_owner', 'login'),
+              id: BuiltValueNullFieldError.checkNotNull(
+                  id, 'GListCardFragmentData_owner', 'id'),
               avatarUrl: avatarUrl.build());
     } catch (_) {
       late String _$failedField;
