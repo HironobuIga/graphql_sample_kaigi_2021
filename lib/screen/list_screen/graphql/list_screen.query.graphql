@@ -1,7 +1,7 @@
 # import './../view/list_card/graphql/list_card.fragment.graphql'
 
 query ListScreenQuery($searchWord: String!) {
-    search(query: $searchWord, type: REPOSITORY) {
+    search(query: $searchWord, type: REPOSITORY, first: 50) {
         __typename
         repositoryCount
         nodes {

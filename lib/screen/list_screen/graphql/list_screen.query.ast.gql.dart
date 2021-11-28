@@ -30,7 +30,10 @@ const ListScreenQuery = _i1.OperationDefinitionNode(
             _i1.ArgumentNode(
                 name: _i1.NameNode(value: 'type'),
                 value:
-                    _i1.EnumValueNode(name: _i1.NameNode(value: 'REPOSITORY')))
+                    _i1.EnumValueNode(name: _i1.NameNode(value: 'REPOSITORY'))),
+            _i1.ArgumentNode(
+                name: _i1.NameNode(value: 'first'),
+                value: _i1.IntValueNode(value: '50'))
           ],
           directives: [],
           selectionSet: _i1.SelectionSetNode(selections: [

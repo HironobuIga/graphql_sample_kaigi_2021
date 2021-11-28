@@ -47,16 +47,9 @@ const ListCardFragment = _i1.FragmentDefinitionNode(
           arguments: [],
           directives: [],
           selectionSet: _i1.SelectionSetNode(selections: [
-            _i1.InlineFragmentNode(
-                typeCondition: _i1.TypeConditionNode(
-                    on: _i1.NamedTypeNode(
-                        name: _i1.NameNode(value: 'User'), isNonNull: false)),
-                directives: [],
-                selectionSet: _i1.SelectionSetNode(selections: [
-                  _i1.FragmentSpreadNode(
-                      name: _i1.NameNode(value: 'OwnerAvatarFragment'),
-                      directives: [])
-                ]))
+            _i1.FragmentSpreadNode(
+                name: _i1.NameNode(value: 'OwnerAvatarFragment'),
+                directives: [])
           ]))
     ]));
 const document =

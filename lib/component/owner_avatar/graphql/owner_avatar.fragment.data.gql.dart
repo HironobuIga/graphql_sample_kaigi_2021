@@ -26,7 +26,7 @@ abstract class GOwnerAvatarFragmentData
       _$GOwnerAvatarFragmentData;
 
   static void _initializeBuilder(GOwnerAvatarFragmentDataBuilder b) =>
-      b..G__typename = 'User';
+      b..G__typename = 'RepositoryOwner';
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
   String get id;

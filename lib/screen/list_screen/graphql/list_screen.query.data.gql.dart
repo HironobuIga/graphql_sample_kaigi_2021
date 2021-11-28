@@ -138,15 +138,28 @@ abstract class GListScreenQueryData_search_nodes__asRepository
 }
 
 abstract class GListScreenQueryData_search_nodes__asRepository_owner
-    implements _i3.GListCardFragment_owner {
+    implements
+        Built<GListScreenQueryData_search_nodes__asRepository_owner,
+            GListScreenQueryData_search_nodes__asRepository_ownerBuilder>,
+        _i3.GListCardFragment_owner,
+        _i4.GOwnerAvatarFragment {
+  GListScreenQueryData_search_nodes__asRepository_owner._();
+
+  factory GListScreenQueryData_search_nodes__asRepository_owner(
+      [Function(GListScreenQueryData_search_nodes__asRepository_ownerBuilder b)
+          updates]) = _$GListScreenQueryData_search_nodes__asRepository_owner;
+
+  static void _initializeBuilder(
+          GListScreenQueryData_search_nodes__asRepository_ownerBuilder b) =>
+      b..G__typename = 'RepositoryOwner';
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
+  String get id;
+  String get login;
+  _i5.GURI get avatarUrl;
   static Serializer<GListScreenQueryData_search_nodes__asRepository_owner>
-      get serializer => _i2.InlineFragmentSerializer<
-              GListScreenQueryData_search_nodes__asRepository_owner>(
-          'GListScreenQueryData_search_nodes__asRepository_owner',
-          GListScreenQueryData_search_nodes__asRepository_owner__base,
-          [GListScreenQueryData_search_nodes__asRepository_owner__asUser]);
+      get serializer =>
+          _$gListScreenQueryDataSearchNodesAsRepositoryOwnerSerializer;
   Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
       GListScreenQueryData_search_nodes__asRepository_owner.serializer,
       this) as Map<String, dynamic>);
@@ -154,76 +167,5 @@ abstract class GListScreenQueryData_search_nodes__asRepository_owner
           Map<String, dynamic> json) =>
       _i1.serializers.deserializeWith(
           GListScreenQueryData_search_nodes__asRepository_owner.serializer,
-          json);
-}
-
-abstract class GListScreenQueryData_search_nodes__asRepository_owner__base
-    implements
-        Built<GListScreenQueryData_search_nodes__asRepository_owner__base,
-            GListScreenQueryData_search_nodes__asRepository_owner__baseBuilder>,
-        GListScreenQueryData_search_nodes__asRepository_owner {
-  GListScreenQueryData_search_nodes__asRepository_owner__base._();
-
-  factory GListScreenQueryData_search_nodes__asRepository_owner__base(
-      [Function(
-              GListScreenQueryData_search_nodes__asRepository_owner__baseBuilder
-                  b)
-          updates]) = _$GListScreenQueryData_search_nodes__asRepository_owner__base;
-
-  static void _initializeBuilder(
-          GListScreenQueryData_search_nodes__asRepository_owner__baseBuilder
-              b) =>
-      b..G__typename = 'RepositoryOwner';
-  @BuiltValueField(wireName: '__typename')
-  String get G__typename;
-  static Serializer<GListScreenQueryData_search_nodes__asRepository_owner__base>
-      get serializer =>
-          _$gListScreenQueryDataSearchNodesAsRepositoryOwnerBaseSerializer;
-  Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
-      GListScreenQueryData_search_nodes__asRepository_owner__base.serializer,
-      this) as Map<String, dynamic>);
-  static GListScreenQueryData_search_nodes__asRepository_owner__base? fromJson(
-          Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(
-          GListScreenQueryData_search_nodes__asRepository_owner__base
-              .serializer,
-          json);
-}
-
-abstract class GListScreenQueryData_search_nodes__asRepository_owner__asUser
-    implements
-        Built<GListScreenQueryData_search_nodes__asRepository_owner__asUser,
-            GListScreenQueryData_search_nodes__asRepository_owner__asUserBuilder>,
-        GListScreenQueryData_search_nodes__asRepository_owner,
-        _i4.GOwnerAvatarFragment {
-  GListScreenQueryData_search_nodes__asRepository_owner__asUser._();
-
-  factory GListScreenQueryData_search_nodes__asRepository_owner__asUser(
-          [Function(
-                  GListScreenQueryData_search_nodes__asRepository_owner__asUserBuilder
-                      b)
-              updates]) =
-      _$GListScreenQueryData_search_nodes__asRepository_owner__asUser;
-
-  static void _initializeBuilder(
-          GListScreenQueryData_search_nodes__asRepository_owner__asUserBuilder
-              b) =>
-      b..G__typename = 'User';
-  @BuiltValueField(wireName: '__typename')
-  String get G__typename;
-  String get id;
-  String get login;
-  _i5.GURI get avatarUrl;
-  static Serializer<
-          GListScreenQueryData_search_nodes__asRepository_owner__asUser>
-      get serializer =>
-          _$gListScreenQueryDataSearchNodesAsRepositoryOwnerAsUserSerializer;
-  Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
-      GListScreenQueryData_search_nodes__asRepository_owner__asUser.serializer,
-      this) as Map<String, dynamic>);
-  static GListScreenQueryData_search_nodes__asRepository_owner__asUser?
-      fromJson(Map<String, dynamic> json) => _i1.serializers.deserializeWith(
-          GListScreenQueryData_search_nodes__asRepository_owner__asUser
-              .serializer,
           json);
 }

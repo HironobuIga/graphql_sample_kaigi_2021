@@ -16,12 +16,9 @@ Serializer<GListScreenQueryData_search_nodes__base>
 Serializer<GListScreenQueryData_search_nodes__asRepository>
     _$gListScreenQueryDataSearchNodesAsRepositorySerializer =
     new _$GListScreenQueryData_search_nodes__asRepositorySerializer();
-Serializer<GListScreenQueryData_search_nodes__asRepository_owner__base>
-    _$gListScreenQueryDataSearchNodesAsRepositoryOwnerBaseSerializer =
-    new _$GListScreenQueryData_search_nodes__asRepository_owner__baseSerializer();
-Serializer<GListScreenQueryData_search_nodes__asRepository_owner__asUser>
-    _$gListScreenQueryDataSearchNodesAsRepositoryOwnerAsUserSerializer =
-    new _$GListScreenQueryData_search_nodes__asRepository_owner__asUserSerializer();
+Serializer<GListScreenQueryData_search_nodes__asRepository_owner>
+    _$gListScreenQueryDataSearchNodesAsRepositoryOwnerSerializer =
+    new _$GListScreenQueryData_search_nodes__asRepository_ownerSerializer();
 
 class _$GListScreenQueryDataSerializer
     implements StructuredSerializer<GListScreenQueryData> {
@@ -265,10 +262,10 @@ class _$GListScreenQueryData_search_nodes__asRepositorySerializer
               specifiedType: const FullType(bool)) as bool;
           break;
         case 'owner':
-          result.owner = serializers.deserialize(value,
+          result.owner.replace(serializers.deserialize(value,
                   specifiedType: const FullType(
-                      GListScreenQueryData_search_nodes__asRepository_owner))
-              as GListScreenQueryData_search_nodes__asRepository_owner;
+                      GListScreenQueryData_search_nodes__asRepository_owner))!
+              as GListScreenQueryData_search_nodes__asRepository_owner);
           break;
       }
     }
@@ -277,72 +274,22 @@ class _$GListScreenQueryData_search_nodes__asRepositorySerializer
   }
 }
 
-class _$GListScreenQueryData_search_nodes__asRepository_owner__baseSerializer
+class _$GListScreenQueryData_search_nodes__asRepository_ownerSerializer
     implements
         StructuredSerializer<
-            GListScreenQueryData_search_nodes__asRepository_owner__base> {
+            GListScreenQueryData_search_nodes__asRepository_owner> {
   @override
   final Iterable<Type> types = const [
-    GListScreenQueryData_search_nodes__asRepository_owner__base,
-    _$GListScreenQueryData_search_nodes__asRepository_owner__base
+    GListScreenQueryData_search_nodes__asRepository_owner,
+    _$GListScreenQueryData_search_nodes__asRepository_owner
   ];
   @override
   final String wireName =
-      'GListScreenQueryData_search_nodes__asRepository_owner__base';
+      'GListScreenQueryData_search_nodes__asRepository_owner';
 
   @override
   Iterable<Object?> serialize(Serializers serializers,
-      GListScreenQueryData_search_nodes__asRepository_owner__base object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      '__typename',
-      serializers.serialize(object.G__typename,
-          specifiedType: const FullType(String)),
-    ];
-
-    return result;
-  }
-
-  @override
-  GListScreenQueryData_search_nodes__asRepository_owner__base deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result =
-        new GListScreenQueryData_search_nodes__asRepository_owner__baseBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case '__typename':
-          result.G__typename = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$GListScreenQueryData_search_nodes__asRepository_owner__asUserSerializer
-    implements
-        StructuredSerializer<
-            GListScreenQueryData_search_nodes__asRepository_owner__asUser> {
-  @override
-  final Iterable<Type> types = const [
-    GListScreenQueryData_search_nodes__asRepository_owner__asUser,
-    _$GListScreenQueryData_search_nodes__asRepository_owner__asUser
-  ];
-  @override
-  final String wireName =
-      'GListScreenQueryData_search_nodes__asRepository_owner__asUser';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers,
-      GListScreenQueryData_search_nodes__asRepository_owner__asUser object,
+      GListScreenQueryData_search_nodes__asRepository_owner object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       '__typename',
@@ -362,11 +309,11 @@ class _$GListScreenQueryData_search_nodes__asRepository_owner__asUserSerializer
   }
 
   @override
-  GListScreenQueryData_search_nodes__asRepository_owner__asUser deserialize(
+  GListScreenQueryData_search_nodes__asRepository_owner deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result =
-        new GListScreenQueryData_search_nodes__asRepository_owner__asUserBuilder();
+        new GListScreenQueryData_search_nodes__asRepository_ownerBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -854,10 +801,13 @@ class GListScreenQueryData_search_nodes__asRepositoryBuilder
   set viewerHasStarred(bool? viewerHasStarred) =>
       _$this._viewerHasStarred = viewerHasStarred;
 
-  GListScreenQueryData_search_nodes__asRepository_owner? _owner;
-  GListScreenQueryData_search_nodes__asRepository_owner? get owner =>
-      _$this._owner;
-  set owner(GListScreenQueryData_search_nodes__asRepository_owner? owner) =>
+  GListScreenQueryData_search_nodes__asRepository_ownerBuilder? _owner;
+  GListScreenQueryData_search_nodes__asRepository_ownerBuilder get owner =>
+      _$this._owner ??=
+          new GListScreenQueryData_search_nodes__asRepository_ownerBuilder();
+  set owner(
+          GListScreenQueryData_search_nodes__asRepository_ownerBuilder?
+              owner) =>
       _$this._owner = owner;
 
   GListScreenQueryData_search_nodes__asRepositoryBuilder() {
@@ -872,7 +822,7 @@ class GListScreenQueryData_search_nodes__asRepositoryBuilder
       _name = $v.name;
       _description = $v.description;
       _viewerHasStarred = $v.viewerHasStarred;
-      _owner = $v.owner;
+      _owner = $v.owner.toBuilder();
       _$v = null;
     }
     return this;
@@ -893,141 +843,44 @@ class GListScreenQueryData_search_nodes__asRepositoryBuilder
 
   @override
   _$GListScreenQueryData_search_nodes__asRepository build() {
-    final _$result = _$v ??
-        new _$GListScreenQueryData_search_nodes__asRepository._(
-            G__typename: BuiltValueNullFieldError.checkNotNull(
-                G__typename,
-                'GListScreenQueryData_search_nodes__asRepository',
-                'G__typename'),
-            id: BuiltValueNullFieldError.checkNotNull(
-                id, 'GListScreenQueryData_search_nodes__asRepository', 'id'),
-            name: BuiltValueNullFieldError.checkNotNull(name,
-                'GListScreenQueryData_search_nodes__asRepository', 'name'),
-            description: description,
-            viewerHasStarred: BuiltValueNullFieldError.checkNotNull(
-                viewerHasStarred,
-                'GListScreenQueryData_search_nodes__asRepository',
-                'viewerHasStarred'),
-            owner: BuiltValueNullFieldError.checkNotNull(owner,
-                'GListScreenQueryData_search_nodes__asRepository', 'owner'));
-    replace(_$result);
-    return _$result;
-  }
-}
-
-class _$GListScreenQueryData_search_nodes__asRepository_owner__base
-    extends GListScreenQueryData_search_nodes__asRepository_owner__base {
-  @override
-  final String G__typename;
-
-  factory _$GListScreenQueryData_search_nodes__asRepository_owner__base(
-          [void Function(
-                  GListScreenQueryData_search_nodes__asRepository_owner__baseBuilder)?
-              updates]) =>
-      (new GListScreenQueryData_search_nodes__asRepository_owner__baseBuilder()
-            ..update(updates))
-          .build();
-
-  _$GListScreenQueryData_search_nodes__asRepository_owner__base._(
-      {required this.G__typename})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        G__typename,
-        'GListScreenQueryData_search_nodes__asRepository_owner__base',
-        'G__typename');
-  }
-
-  @override
-  GListScreenQueryData_search_nodes__asRepository_owner__base rebuild(
-          void Function(
-                  GListScreenQueryData_search_nodes__asRepository_owner__baseBuilder)
-              updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  GListScreenQueryData_search_nodes__asRepository_owner__baseBuilder
-      toBuilder() =>
-          new GListScreenQueryData_search_nodes__asRepository_owner__baseBuilder()
-            ..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other
-            is GListScreenQueryData_search_nodes__asRepository_owner__base &&
-        G__typename == other.G__typename;
-  }
-
-  @override
-  int get hashCode {
-    return $jf($jc(0, G__typename.hashCode));
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(
-            'GListScreenQueryData_search_nodes__asRepository_owner__base')
-          ..add('G__typename', G__typename))
-        .toString();
-  }
-}
-
-class GListScreenQueryData_search_nodes__asRepository_owner__baseBuilder
-    implements
-        Builder<GListScreenQueryData_search_nodes__asRepository_owner__base,
-            GListScreenQueryData_search_nodes__asRepository_owner__baseBuilder> {
-  _$GListScreenQueryData_search_nodes__asRepository_owner__base? _$v;
-
-  String? _G__typename;
-  String? get G__typename => _$this._G__typename;
-  set G__typename(String? G__typename) => _$this._G__typename = G__typename;
-
-  GListScreenQueryData_search_nodes__asRepository_owner__baseBuilder() {
-    GListScreenQueryData_search_nodes__asRepository_owner__base
-        ._initializeBuilder(this);
-  }
-
-  GListScreenQueryData_search_nodes__asRepository_owner__baseBuilder
-      get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _G__typename = $v.G__typename;
-      _$v = null;
+    _$GListScreenQueryData_search_nodes__asRepository _$result;
+    try {
+      _$result = _$v ??
+          new _$GListScreenQueryData_search_nodes__asRepository._(
+              G__typename: BuiltValueNullFieldError.checkNotNull(
+                  G__typename,
+                  'GListScreenQueryData_search_nodes__asRepository',
+                  'G__typename'),
+              id: BuiltValueNullFieldError.checkNotNull(
+                  id, 'GListScreenQueryData_search_nodes__asRepository', 'id'),
+              name: BuiltValueNullFieldError.checkNotNull(name,
+                  'GListScreenQueryData_search_nodes__asRepository', 'name'),
+              description: description,
+              viewerHasStarred: BuiltValueNullFieldError.checkNotNull(
+                  viewerHasStarred,
+                  'GListScreenQueryData_search_nodes__asRepository',
+                  'viewerHasStarred'),
+              owner: owner.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'owner';
+        owner.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'GListScreenQueryData_search_nodes__asRepository',
+            _$failedField,
+            e.toString());
+      }
+      rethrow;
     }
-    return this;
-  }
-
-  @override
-  void replace(
-      GListScreenQueryData_search_nodes__asRepository_owner__base other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v =
-        other as _$GListScreenQueryData_search_nodes__asRepository_owner__base;
-  }
-
-  @override
-  void update(
-      void Function(
-              GListScreenQueryData_search_nodes__asRepository_owner__baseBuilder)?
-          updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  _$GListScreenQueryData_search_nodes__asRepository_owner__base build() {
-    final _$result = _$v ??
-        new _$GListScreenQueryData_search_nodes__asRepository_owner__base._(
-            G__typename: BuiltValueNullFieldError.checkNotNull(
-                G__typename,
-                'GListScreenQueryData_search_nodes__asRepository_owner__base',
-                'G__typename'));
     replace(_$result);
     return _$result;
   }
 }
 
-class _$GListScreenQueryData_search_nodes__asRepository_owner__asUser
-    extends GListScreenQueryData_search_nodes__asRepository_owner__asUser {
+class _$GListScreenQueryData_search_nodes__asRepository_owner
+    extends GListScreenQueryData_search_nodes__asRepository_owner {
   @override
   final String G__typename;
   @override
@@ -1037,54 +890,46 @@ class _$GListScreenQueryData_search_nodes__asRepository_owner__asUser
   @override
   final _i5.GURI avatarUrl;
 
-  factory _$GListScreenQueryData_search_nodes__asRepository_owner__asUser(
+  factory _$GListScreenQueryData_search_nodes__asRepository_owner(
           [void Function(
-                  GListScreenQueryData_search_nodes__asRepository_owner__asUserBuilder)?
+                  GListScreenQueryData_search_nodes__asRepository_ownerBuilder)?
               updates]) =>
-      (new GListScreenQueryData_search_nodes__asRepository_owner__asUserBuilder()
+      (new GListScreenQueryData_search_nodes__asRepository_ownerBuilder()
             ..update(updates))
           .build();
 
-  _$GListScreenQueryData_search_nodes__asRepository_owner__asUser._(
+  _$GListScreenQueryData_search_nodes__asRepository_owner._(
       {required this.G__typename,
       required this.id,
       required this.login,
       required this.avatarUrl})
       : super._() {
+    BuiltValueNullFieldError.checkNotNull(G__typename,
+        'GListScreenQueryData_search_nodes__asRepository_owner', 'G__typename');
     BuiltValueNullFieldError.checkNotNull(
-        G__typename,
-        'GListScreenQueryData_search_nodes__asRepository_owner__asUser',
-        'G__typename');
-    BuiltValueNullFieldError.checkNotNull(id,
-        'GListScreenQueryData_search_nodes__asRepository_owner__asUser', 'id');
-    BuiltValueNullFieldError.checkNotNull(
-        login,
-        'GListScreenQueryData_search_nodes__asRepository_owner__asUser',
-        'login');
-    BuiltValueNullFieldError.checkNotNull(
-        avatarUrl,
-        'GListScreenQueryData_search_nodes__asRepository_owner__asUser',
-        'avatarUrl');
+        id, 'GListScreenQueryData_search_nodes__asRepository_owner', 'id');
+    BuiltValueNullFieldError.checkNotNull(login,
+        'GListScreenQueryData_search_nodes__asRepository_owner', 'login');
+    BuiltValueNullFieldError.checkNotNull(avatarUrl,
+        'GListScreenQueryData_search_nodes__asRepository_owner', 'avatarUrl');
   }
 
   @override
-  GListScreenQueryData_search_nodes__asRepository_owner__asUser rebuild(
+  GListScreenQueryData_search_nodes__asRepository_owner rebuild(
           void Function(
-                  GListScreenQueryData_search_nodes__asRepository_owner__asUserBuilder)
+                  GListScreenQueryData_search_nodes__asRepository_ownerBuilder)
               updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  GListScreenQueryData_search_nodes__asRepository_owner__asUserBuilder
-      toBuilder() =>
-          new GListScreenQueryData_search_nodes__asRepository_owner__asUserBuilder()
-            ..replace(this);
+  GListScreenQueryData_search_nodes__asRepository_ownerBuilder toBuilder() =>
+      new GListScreenQueryData_search_nodes__asRepository_ownerBuilder()
+        ..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other
-            is GListScreenQueryData_search_nodes__asRepository_owner__asUser &&
+    return other is GListScreenQueryData_search_nodes__asRepository_owner &&
         G__typename == other.G__typename &&
         id == other.id &&
         login == other.login &&
@@ -1101,7 +946,7 @@ class _$GListScreenQueryData_search_nodes__asRepository_owner__asUser
   @override
   String toString() {
     return (newBuiltValueToStringHelper(
-            'GListScreenQueryData_search_nodes__asRepository_owner__asUser')
+            'GListScreenQueryData_search_nodes__asRepository_owner')
           ..add('G__typename', G__typename)
           ..add('id', id)
           ..add('login', login)
@@ -1110,11 +955,11 @@ class _$GListScreenQueryData_search_nodes__asRepository_owner__asUser
   }
 }
 
-class GListScreenQueryData_search_nodes__asRepository_owner__asUserBuilder
+class GListScreenQueryData_search_nodes__asRepository_ownerBuilder
     implements
-        Builder<GListScreenQueryData_search_nodes__asRepository_owner__asUser,
-            GListScreenQueryData_search_nodes__asRepository_owner__asUserBuilder> {
-  _$GListScreenQueryData_search_nodes__asRepository_owner__asUser? _$v;
+        Builder<GListScreenQueryData_search_nodes__asRepository_owner,
+            GListScreenQueryData_search_nodes__asRepository_ownerBuilder> {
+  _$GListScreenQueryData_search_nodes__asRepository_owner? _$v;
 
   String? _G__typename;
   String? get G__typename => _$this._G__typename;
@@ -1132,13 +977,12 @@ class GListScreenQueryData_search_nodes__asRepository_owner__asUserBuilder
   _i5.GURIBuilder get avatarUrl => _$this._avatarUrl ??= new _i5.GURIBuilder();
   set avatarUrl(_i5.GURIBuilder? avatarUrl) => _$this._avatarUrl = avatarUrl;
 
-  GListScreenQueryData_search_nodes__asRepository_owner__asUserBuilder() {
-    GListScreenQueryData_search_nodes__asRepository_owner__asUser
-        ._initializeBuilder(this);
+  GListScreenQueryData_search_nodes__asRepository_ownerBuilder() {
+    GListScreenQueryData_search_nodes__asRepository_owner._initializeBuilder(
+        this);
   }
 
-  GListScreenQueryData_search_nodes__asRepository_owner__asUserBuilder
-      get _$this {
+  GListScreenQueryData_search_nodes__asRepository_ownerBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _G__typename = $v.G__typename;
@@ -1151,38 +995,36 @@ class GListScreenQueryData_search_nodes__asRepository_owner__asUserBuilder
   }
 
   @override
-  void replace(
-      GListScreenQueryData_search_nodes__asRepository_owner__asUser other) {
+  void replace(GListScreenQueryData_search_nodes__asRepository_owner other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other
-        as _$GListScreenQueryData_search_nodes__asRepository_owner__asUser;
+    _$v = other as _$GListScreenQueryData_search_nodes__asRepository_owner;
   }
 
   @override
   void update(
       void Function(
-              GListScreenQueryData_search_nodes__asRepository_owner__asUserBuilder)?
+              GListScreenQueryData_search_nodes__asRepository_ownerBuilder)?
           updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  _$GListScreenQueryData_search_nodes__asRepository_owner__asUser build() {
-    _$GListScreenQueryData_search_nodes__asRepository_owner__asUser _$result;
+  _$GListScreenQueryData_search_nodes__asRepository_owner build() {
+    _$GListScreenQueryData_search_nodes__asRepository_owner _$result;
     try {
       _$result = _$v ??
-          new _$GListScreenQueryData_search_nodes__asRepository_owner__asUser._(
+          new _$GListScreenQueryData_search_nodes__asRepository_owner._(
               G__typename: BuiltValueNullFieldError.checkNotNull(
                   G__typename,
-                  'GListScreenQueryData_search_nodes__asRepository_owner__asUser',
+                  'GListScreenQueryData_search_nodes__asRepository_owner',
                   'G__typename'),
               id: BuiltValueNullFieldError.checkNotNull(
                   id,
-                  'GListScreenQueryData_search_nodes__asRepository_owner__asUser',
+                  'GListScreenQueryData_search_nodes__asRepository_owner',
                   'id'),
               login: BuiltValueNullFieldError.checkNotNull(
                   login,
-                  'GListScreenQueryData_search_nodes__asRepository_owner__asUser',
+                  'GListScreenQueryData_search_nodes__asRepository_owner',
                   'login'),
               avatarUrl: avatarUrl.build());
     } catch (_) {
@@ -1192,7 +1034,7 @@ class GListScreenQueryData_search_nodes__asRepository_owner__asUserBuilder
         avatarUrl.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            'GListScreenQueryData_search_nodes__asRepository_owner__asUser',
+            'GListScreenQueryData_search_nodes__asRepository_owner',
             _$failedField,
             e.toString());
       }

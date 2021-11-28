@@ -1,4 +1,4 @@
-fragment OwnerAvatarFragment on User {
+fragment OwnerAvatarFragment on RepositoryOwner {
     __typename
     id
     login

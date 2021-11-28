@@ -9,6 +9,28 @@ import 'package:graphql_sample_kaigi_2021/component/owner_avatar/graphql/owner_a
     show GOwnerAvatarFragmentReq;
 import 'package:graphql_sample_kaigi_2021/component/owner_avatar/graphql/owner_avatar.fragment.var.gql.dart'
     show GOwnerAvatarFragmentVars;
+import 'package:graphql_sample_kaigi_2021/network/mutation/add_star/graphql/add_star.mutation.data.gql.dart'
+    show
+        GAddStarData_addStar_starrable,
+        GAddStarData,
+        GAddStarData_addStar,
+        GAddStarData_addStar_starrable__asRepository,
+        GAddStarData_addStar_starrable__base;
+import 'package:graphql_sample_kaigi_2021/network/mutation/add_star/graphql/add_star.mutation.req.gql.dart'
+    show GAddStarReq;
+import 'package:graphql_sample_kaigi_2021/network/mutation/add_star/graphql/add_star.mutation.var.gql.dart'
+    show GAddStarVars;
+import 'package:graphql_sample_kaigi_2021/network/mutation/remove_star/graphql/remove_star.mutation.data.gql.dart'
+    show
+        GremoveStarData_removeStar_starrable,
+        GremoveStarData,
+        GremoveStarData_removeStar,
+        GremoveStarData_removeStar_starrable__asRepository,
+        GremoveStarData_removeStar_starrable__base;
+import 'package:graphql_sample_kaigi_2021/network/mutation/remove_star/graphql/remove_star.mutation.req.gql.dart'
+    show GremoveStarReq;
+import 'package:graphql_sample_kaigi_2021/network/mutation/remove_star/graphql/remove_star.mutation.var.gql.dart'
+    show GremoveStarVars;
 import 'package:graphql_sample_kaigi_2021/schema/schema.schema.gql.dart'
     show
         GAcceptEnterpriseAdministratorInvitationInput,
@@ -401,23 +423,17 @@ import 'package:graphql_sample_kaigi_2021/schema/schema.schema.gql.dart'
 import 'package:graphql_sample_kaigi_2021/screen/list_screen/graphql/list_screen.query.data.gql.dart'
     show
         GListScreenQueryData_search_nodes,
-        GListScreenQueryData_search_nodes__asRepository_owner,
         GListScreenQueryData,
         GListScreenQueryData_search,
         GListScreenQueryData_search_nodes__asRepository,
-        GListScreenQueryData_search_nodes__asRepository_owner__asUser,
-        GListScreenQueryData_search_nodes__asRepository_owner__base,
+        GListScreenQueryData_search_nodes__asRepository_owner,
         GListScreenQueryData_search_nodes__base;
 import 'package:graphql_sample_kaigi_2021/screen/list_screen/graphql/list_screen.query.req.gql.dart'
     show GListScreenQueryReq;
 import 'package:graphql_sample_kaigi_2021/screen/list_screen/graphql/list_screen.query.var.gql.dart'
     show GListScreenQueryVars;
 import 'package:graphql_sample_kaigi_2021/screen/list_screen/view/list_card/graphql/list_card.fragment.data.gql.dart'
-    show
-        GListCardFragmentData_owner,
-        GListCardFragmentData,
-        GListCardFragmentData_owner__asUser,
-        GListCardFragmentData_owner__base;
+    show GListCardFragmentData, GListCardFragmentData_owner;
 import 'package:graphql_sample_kaigi_2021/screen/list_screen/view/list_card/graphql/list_card.fragment.req.gql.dart'
     show GListCardFragmentReq;
 import 'package:graphql_sample_kaigi_2021/screen/list_screen/view/list_card/graphql/list_card.fragment.var.gql.dart'
@@ -427,9 +443,9 @@ part 'serializers.gql.g.dart';
 
 final SerializersBuilder _serializersBuilder = _$serializers.toBuilder()
   ..add(OperationSerializer())
-  ..add(GListCardFragmentData_owner.serializer)
+  ..add(GAddStarData_addStar_starrable.serializer)
   ..add(GListScreenQueryData_search_nodes.serializer)
-  ..add(GListScreenQueryData_search_nodes__asRepository_owner.serializer)
+  ..add(GremoveStarData_removeStar_starrable.serializer)
   ..addPlugin(StandardJsonPlugin());
 @SerializersFor([
   GAcceptEnterpriseAdministratorInvitationInput,
@@ -446,7 +462,13 @@ final SerializersBuilder _serializersBuilder = _$serializers.toBuilder()
   GAddPullRequestReviewInput,
   GAddPullRequestReviewThreadInput,
   GAddReactionInput,
+  GAddStarData,
+  GAddStarData_addStar,
+  GAddStarData_addStar_starrable__asRepository,
+  GAddStarData_addStar_starrable__base,
   GAddStarInput,
+  GAddStarReq,
+  GAddStarVars,
   GAddUpvoteInput,
   GAddVerifiableDomainInput,
   GApproveDeploymentsInput,
@@ -595,15 +617,13 @@ final SerializersBuilder _serializersBuilder = _$serializers.toBuilder()
   GLanguageOrderField,
   GLinkRepositoryToProjectInput,
   GListCardFragmentData,
-  GListCardFragmentData_owner__asUser,
-  GListCardFragmentData_owner__base,
+  GListCardFragmentData_owner,
   GListCardFragmentReq,
   GListCardFragmentVars,
   GListScreenQueryData,
   GListScreenQueryData_search,
   GListScreenQueryData_search_nodes__asRepository,
-  GListScreenQueryData_search_nodes__asRepository_owner__asUser,
-  GListScreenQueryData_search_nodes__asRepository_owner__base,
+  GListScreenQueryData_search_nodes__asRepository_owner,
   GListScreenQueryData_search_nodes__base,
   GListScreenQueryReq,
   GListScreenQueryVars,
@@ -834,6 +854,12 @@ final SerializersBuilder _serializersBuilder = _$serializers.toBuilder()
   GVerifiableDomainOrder,
   GVerifiableDomainOrderField,
   GVerifyVerifiableDomainInput,
-  GX509Certificate
+  GX509Certificate,
+  GremoveStarData,
+  GremoveStarData_removeStar,
+  GremoveStarData_removeStar_starrable__asRepository,
+  GremoveStarData_removeStar_starrable__base,
+  GremoveStarReq,
+  GremoveStarVars
 ])
 final Serializers serializers = _serializersBuilder.build();
