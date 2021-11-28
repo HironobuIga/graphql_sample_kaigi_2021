@@ -11,14 +11,19 @@ dependencies:
   gql_link:
   gql_http_link:
   ferry_flutter:
+
   # persistent cache
   ferry_hive_store:
   hive:
   hive_flutter:
+
   # architecture
   hooks_riverpod: 1.0.0
   flutter:
     sdk: flutter
+
+  # analyzer
+  flutter_lints: ^1.0.4
 
 dev_dependencies:
   build_runner:
