@@ -1,0 +1,11 @@
+mutation removeStar($input: RemoveStarInput!) {
+    removeStar(input: $input) {
+        starrable {
+            ... on Repository {
+                __typename
+                id
+                viewerHasStarred
+            }
+        }
+    }
+}
