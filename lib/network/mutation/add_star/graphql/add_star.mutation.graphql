@@ -1,0 +1,11 @@
+mutation AddStar($input: AddStarInput!) {
+    addStar(input: $input) {
+        starrable {
+            ... on Repository {
+                __typename
+                id
+                viewerHasStarred
+            }
+        }
+    }
+}
